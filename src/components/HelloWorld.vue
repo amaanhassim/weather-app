@@ -87,10 +87,28 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
   name: "HelloWorld",
   props: {
     msg: String,
+  },
+  mounted() {
+    this.fetchWeather();
+  },
+  methods: {
+    async fetchWeather() {
+      const weatherData = await axios.get(
+        "http://api.weatherapi.com/v1/current.json",
+        {
+          params: {
+            key: "c75acb44654e43abbe9223411232511",
+            q: "London",
+          },
+        }
+      );
+      console.log(weatherData);
+    },
   },
 };
 </script>
