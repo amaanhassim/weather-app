@@ -8,6 +8,8 @@ services:
       dockerfile: Dockerfile
     volumes:
       - ".:/app"
+      # this volume will make sure that node modules is not overridden
+      # when running the container and the current directory is mounted into the container
       - "/app/node_modules"
     ports:
       - "8081:8080"
