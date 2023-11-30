@@ -1,3 +1,15 @@
+# Weather-app Docker Version
+
+### Build image and start container in detached mode
+```
+docker-compose up -d --build
+```
+
+### Stop and remove container
+```
+docker-compose down
+```
+
 # weather-app
 
 ## Project setup
