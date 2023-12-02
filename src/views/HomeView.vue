@@ -6,20 +6,7 @@
     <div class="col-2">
       <div class="row-1-ct">
         <air-pollution />
-        <v-sheet class="p-[5px]">
-          <div class="h-full flex flex-col justify-between">
-            <div class="flex gap-x-2">
-              <v-icon icon="mdi-weather-sunset"></v-icon>
-              <span>Sunset</span>
-            </div>
-            <div>
-              <span> 4:38 PM </span>
-            </div>
-            <div>
-              <span>Sunrise: 7:08PM</span>
-            </div>
-          </div>
-        </v-sheet>
+        <sunset-sunrise />
       </div>
     </div>
     <div class="col-3"></div>
@@ -29,8 +16,9 @@
 <script>
 import CurrentTemperature from "@/components/FirstColumn/CurrentTemperature.vue";
 import AirPollution from "@/components/SecondColumn/AirPollution.vue";
+import SunsetSunrise from "@/components/SecondColumn/SunsetSunrise.vue";
 export default {
-  components: { CurrentTemperature, AirPollution },
+  components: { CurrentTemperature, AirPollution, SunsetSunrise },
   name: "HomeView",
   data() {
     return {};
