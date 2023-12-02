@@ -1,5 +1,5 @@
 <template>
-  <v-card>
+  <v-card height="265">
     <v-card-item>
       <div class="flex justify-between">
         <span>Sunday</span>

@@ -8,6 +8,10 @@
         <air-pollution />
         <sunset-sunrise />
       </div>
+      <div class="row-2-ct">
+        <hourly-forecast />
+        <uv-index />
+      </div>
     </div>
     <div class="col-3"></div>
   </div>
@@ -15,10 +19,18 @@
 
 <script>
 import CurrentTemperature from "@/components/FirstColumn/CurrentTemperature.vue";
-import AirPollution from "@/components/SecondColumn/AirPollution.vue";
-import SunsetSunrise from "@/components/SecondColumn/SunsetSunrise.vue";
+import AirPollution from "@/components/SecondColumn/FirstRow/AirPollution.vue";
+import SunsetSunrise from "@/components/SecondColumn/FirstRow/SunsetSunrise.vue";
+import HourlyForecast from "@/components/SecondColumn/SecondRow/HourlyForecast.vue";
+import UvIndex from "@/components/SecondColumn/SecondRow/UvIndex.vue";
 export default {
-  components: { CurrentTemperature, AirPollution, SunsetSunrise },
+  components: {
+    CurrentTemperature,
+    AirPollution,
+    SunsetSunrise,
+    HourlyForecast,
+    UvIndex,
+  },
   name: "HomeView",
   data() {
     return {};
@@ -45,9 +57,18 @@ export default {
 
 .col-2 {
   grid-area: col-2;
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
 }
 
 .row-1-ct {
+  display: grid;
+  grid-template-columns: 450px auto;
+  column-gap: 10px;
+}
+
+.row-2-ct {
   display: grid;
   grid-template-columns: 450px auto;
   column-gap: 10px;
