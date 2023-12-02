@@ -1,8 +1,8 @@
 <template>
-  <v-card class="h-32">
-    <v-card-item class="h-32">
-      <div class="flex flex-col gap-y-6">
-        <div class="flex gap-x-2.5">
+  <v-card height="140">
+    <v-card-item>
+      <div class="flex flex-col gap-y-5">
+        <div class="flex gap-x-2.5 items-center">
           <v-icon icon="mdi-virus"></v-icon>
           <span>Air pollution</span>
         </div>
@@ -14,9 +14,7 @@
           ></v-progress-linear>
         </div>
         <div>
-          <span>Air quality is good.
-            
-          </span>
+          <span>Air quality is good. </span>
         </div>
       </div>
     </v-card-item>

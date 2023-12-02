@@ -4,22 +4,22 @@
       <current-temperature />
     </div>
     <div class="col-2">
-      <div class="row-1">
+      <div class="row-1-ct">
         <air-pollution />
-        <v-card>
-          <v-card-item>
-            <div>
+        <v-sheet class="p-[5px]">
+          <div class="h-full flex flex-col justify-between">
+            <div class="flex gap-x-2">
               <v-icon icon="mdi-weather-sunset"></v-icon>
               <span>Sunset</span>
             </div>
             <div>
-              <span> 4:38PM </span>
+              <span> 4:38 PM </span>
             </div>
             <div>
               <span>Sunrise: 7:08PM</span>
             </div>
-          </v-card-item>
-        </v-card>
+          </div>
+        </v-sheet>
       </div>
     </div>
     <div class="col-3"></div>
@@ -59,7 +59,7 @@ export default {
   grid-area: col-2;
 }
 
-.row-1 {
+.row-1-ct {
   display: grid;
   grid-template-columns: 450px auto;
   column-gap: 10px;
