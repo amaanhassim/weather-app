@@ -1,15 +1,15 @@
 <template>
-  <v-sheet rounded class="p-[10px] h-48" :loading="true">
+  <v-sheet rounded class="p-[10px] h-48">
     <div class="h-full flex flex-col justify-between">
       <div class="flex gap-x-2">
-        <v-icon icon="mdi-weather-sunset"></v-icon>
-        <span>Sunset</span>
+        <v-icon icon="mdi-thermometer-low"></v-icon>
+        <span>Feels like</span>
       </div>
       <div>
-        <span> 4:38 PM </span>
+        <span>7&deg;</span>
       </div>
       <div>
-        <span>Sunrise: 7:08PM</span>
+        <span>Feels colder than the actual temperature</span>
       </div>
     </div>
   </v-sheet>
@@ -17,7 +17,7 @@
 
 <script>
 export default {
-  name: "SunsetSunrise",
+  name: "FeelsLike",
 };
 </script>
 
