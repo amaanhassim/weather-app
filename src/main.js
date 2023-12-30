@@ -14,6 +14,8 @@ import "@mdi/font/css/materialdesignicons.css";
 //router
 import router from "@/router";
 
+import { createPinia } from "pinia";
+
 const vuetify = createVuetify({
   theme: {
     defaultTheme: "dark",
@@ -29,4 +31,4 @@ const vuetify = createVuetify({
   },
 });
 
-createApp(App).use(router).use(vuetify).mount("#app");
+createApp(App).use(createPinia()).use(router).use(vuetify).mount("#app");

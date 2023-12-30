@@ -7,6 +7,8 @@
         class="w-60"
         variant="outlined"
         density="compact"
+        v-model="setLocation"
+        @keyup.enter="fetchData"
       ></v-text-field>
       <v-btn
         class="icon-btn"
@@ -19,8 +21,25 @@
 </template>
 
 <script>
+import { mapStores, mapState, mapActions } from "pinia";
+import { useWeatherStore } from "@/store/index";
 export default {
   name: "TheSearchBar",
+  computed: {
+    ...mapStores(useWeatherStore),
+    ...mapState(useWeatherStore, ["getWeatherLocation"]),
+    setLocation: {
+      get() {
+        return this.getWeatherLocation;
+      },
+      set(location) {
+        this.setWeatherLocation(location);
+      },
+    },
+  },
+  methods: {
+    ...mapActions(useWeatherStore, ["setWeatherLocation", "fetchData"]),
+  },
 };
 </script>
 

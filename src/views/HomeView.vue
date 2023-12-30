@@ -40,7 +40,9 @@ import CurrentVisibility from "@/components/SecondColumn/ThirdRow/CurrentVisibil
 import WindDirection from "@/components/ThirdColumn/WindDirection.vue";
 import PrecipitationForecast from "@/components/ThirdColumn/PrecipitationForecast.vue";
 import PressureForecast from "@/components/ThirdColumn/PressureForecast.vue";
-import axios from "axios";
+import { mapStores, mapState, mapActions } from "pinia";
+import { useWeatherStore } from "@/store/index";
+// import axios from "axios";
 export default {
   components: {
     CurrentTemperature,
@@ -61,18 +63,19 @@ export default {
     return {};
   },
 
-  mounted() {
-    axios
-      .get("https://api.weatherapi.com/v1/current.json", {
-        params: {
-          key: "c75acb44654e43abbe9223411232511",
-          q: "london",
-          aqi: "yes",
-        },
-      })
-      .then(({ data }) => {
-        console.log(data);
-      });
+  async created() {
+    await this.fetchData();
+  },
+
+  computed: {
+    // gives access to this.weatherStore
+    ...mapStores(useWeatherStore),
+    // gives read access to this.weatherData and this.getWeatherData
+    ...mapState(useWeatherStore, ["weatherData", "getWeatherData"]),
+  },
+
+  methods: {
+    ...mapActions(useWeatherStore, ["fetchData"]),
   },
 };
 </script>
