@@ -23,9 +23,16 @@
         </span>
       </div>
       <div>
-        <v-icon icon="mdi-weather-rainy"></v-icon>
+        <v-img
+          :width="40"
+          :src="`https:${getWeatherData?.current?.condition?.icon}`"
+        ></v-img>
+        <p>{{ getWeatherData?.current?.condition?.text }}</p>
       </div>
-      <div>H: 11&deg; L: 10&deg;</div>
+      <div>
+        H: {{ getMarineData?.forecast?.forecastday[0]?.day.maxtemp_c }}&deg; L:
+        {{ getMarineData?.forecast?.forecastday[0]?.day.mintemp_c }}&deg;
+      </div>
     </div>
   </v-sheet>
 </template>
@@ -53,7 +60,11 @@ export default {
     // gives access to this.weatherStore
     ...mapStores(useWeatherStore),
     // gives read access to this.weatherData and this.getWeatherData
-    ...mapState(useWeatherStore, ["weatherData", "getWeatherData"]),
+    ...mapState(useWeatherStore, [
+      "weatherData",
+      "getWeatherData",
+      "getMarineData",
+    ]),
     getTime() {
       return this.currentDate
         .toLocaleTimeString([], {

@@ -65,6 +65,7 @@ export default {
 
   async created() {
     await this.fetchData();
+    await this.fetchMarineData();
   },
 
   computed: {
@@ -75,7 +76,7 @@ export default {
   },
 
   methods: {
-    ...mapActions(useWeatherStore, ["fetchData"]),
+    ...mapActions(useWeatherStore, ["fetchData", "fetchMarineData"]),
   },
 };
 </script>

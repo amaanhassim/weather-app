@@ -8,7 +8,7 @@
         variant="outlined"
         density="compact"
         v-model="setLocation"
-        @keyup.enter="fetchData"
+        @keyup.enter="fetchWeatherData"
       ></v-text-field>
       <v-btn
         class="icon-btn"
@@ -38,7 +38,15 @@ export default {
     },
   },
   methods: {
-    ...mapActions(useWeatherStore, ["setWeatherLocation", "fetchData"]),
+    ...mapActions(useWeatherStore, [
+      "setWeatherLocation",
+      "fetchData",
+      "fetchMarineData",
+    ]),
+    async fetchWeatherData() {
+      await this.fetchData();
+      await this.fetchMarineData();
+    },
   },
 };
 </script>

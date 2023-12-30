@@ -6,18 +6,34 @@
         <span>Sunset</span>
       </div>
       <div>
-        <span> 4:38 PM </span>
+        <span>
+          {{ getMarineData?.forecast?.forecastday[0].astro.sunrise }}
+        </span>
       </div>
       <div>
-        <span>Sunrise: 7:08PM</span>
+        <span
+          >Sunrise:
+          {{ getMarineData?.forecast?.forecastday[0].astro.sunset }}</span
+        >
       </div>
     </div>
   </v-sheet>
 </template>
 
 <script>
+import { useWeatherStore } from "@/store";
+import { mapState } from "pinia";
 export default {
   name: "SunsetSunrise",
+  computed: {
+    ...mapState(useWeatherStore, ["getMarineData"]),
+  },
+  methods: {
+    getSunrise() {
+      console.log(this.getMarineData);
+      return "4:38 PM";
+    },
+  },
 };
 </script>
 
