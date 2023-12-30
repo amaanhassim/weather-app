@@ -28,12 +28,6 @@ export default {
   computed: {
     ...mapState(useWeatherStore, ["getMarineData"]),
   },
-  methods: {
-    getSunrise() {
-      console.log(this.getMarineData);
-      return "4:38 PM";
-    },
-  },
 };
 </script>
 
