@@ -9,7 +9,6 @@ export const useWeatherStore = defineStore("weather", {
   },
   actions: {
     async fetchData() {
-      console.log("in pinia");
       await axios
         .get("https://api.weatherapi.com/v1/current.json", {
           params: {
