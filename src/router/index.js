@@ -1,5 +1,6 @@
 import { createRouter } from "vue-router";
 import { createWebHashHistory } from "vue-router";
+import { useWeatherStore } from "@/store";
 
 import HomeView from "@/views/HomeView.vue";
 
@@ -8,6 +9,12 @@ const routes = [
     path: "/",
     name: "Home",
     component: HomeView,
+    // before entering the component fetch the weather data
+    beforeEnter: async () => {
+      const store = useWeatherStore();
+      await store.fetchData();
+      await store.fetchMarineData();
+    },
   },
 ];
 

@@ -6,18 +6,38 @@
         <span>Feels like</span>
       </div>
       <div>
-        <span>7&deg;</span>
+        <span>{{ this.getWeatherData.current?.feelslike_c }}&deg;</span>
       </div>
       <div>
-        <span>Feels colder than the actual temperature</span>
+        <span>{{ getDescription }}</span>
       </div>
     </div>
   </v-sheet>
 </template>
 
 <script>
+import { mapState } from "pinia";
+import { useWeatherStore } from "@/store";
 export default {
   name: "FeelsLike",
+  computed: {
+    ...mapState(useWeatherStore, ["getWeatherData"]),
+    getDescription() {
+      if (
+        this.getWeatherData.current?.feelslike_c >
+        this.getWeatherData.current?.temp_c
+      ) {
+        return "Feels warmer than the actual temperature";
+      } else if (
+        this.getWeatherData.current?.feelslike_c <
+        this.getWeatherData.current?.temp_c
+      ) {
+        return "Feels colder than the actual temperature";
+      }
+
+      return "";
+    },
+  },
 };
 </script>
 

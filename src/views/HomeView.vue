@@ -63,16 +63,15 @@ export default {
     return {};
   },
 
-  async created() {
-    await this.fetchData();
-    await this.fetchMarineData();
-  },
-
   computed: {
     // gives access to this.weatherStore
     ...mapStores(useWeatherStore),
     // gives read access to this.weatherData and this.getWeatherData
-    ...mapState(useWeatherStore, ["weatherData", "getWeatherData"]),
+    ...mapState(useWeatherStore, [
+      "weatherData",
+      "getWeatherData",
+      "getMarineData",
+    ]),
   },
 
   methods: {
