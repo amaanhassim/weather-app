@@ -68,6 +68,7 @@ export default {
     getTime() {
       return this.currentDate
         .toLocaleTimeString([], {
+          timeZone: this.weatherData?.location?.tz_id,
           hour12: true,
         })
         .toUpperCase();
