@@ -6,7 +6,7 @@
         <span>Visibility</span>
       </div>
       <div>
-        <span>10 km</span>
+        <span>{{ getWeatherData.current.vis_km }} km</span>
       </div>
       <div>
         <span>Its perfectly clear right now</span>
@@ -16,8 +16,13 @@
 </template>
 
 <script>
+import { mapState } from "pinia";
+import { useWeatherStore } from "@/store";
 export default {
   name: "CurrentVisibility",
+  computed: {
+    ...mapState(useWeatherStore, ["getWeatherData"]),
+  },
 };
 </script>
 

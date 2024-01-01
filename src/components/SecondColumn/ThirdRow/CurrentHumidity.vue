@@ -6,18 +6,35 @@
         <span>Humidity</span>
       </div>
       <div>
-        <span>74&deg;</span>
+        <span>{{ getWeatherData.current.humidity }}&deg;</span>
       </div>
       <div>
-        <span>High Humidity. It might feel humid and uncomfortable.</span>
+        <span>{{ getHumidityDescription }}</span>
       </div>
     </div>
   </v-sheet>
 </template>
 
 <script>
+import { useWeatherStore } from "@/store";
+import { mapState } from "pinia";
 export default {
   name: "CurrentHumidity",
+  computed: {
+    ...mapState(useWeatherStore, ["getWeatherData"]),
+    getHumidityDescription() {
+      if (this.getWeatherData.current.humidity <= 30) {
+        return "Too dry. Uncomfortable conditions.";
+      } else if (
+        this.getWeatherData.current.humidity > 30 &&
+        this.getWeatherData.current.humidity <= 50
+      ) {
+        return "Optimal humidity. Comfortable conditions.";
+      }
+
+      return "High Humidity. Uncomfortable conditions.";
+    },
+  },
 };
 </script>
 

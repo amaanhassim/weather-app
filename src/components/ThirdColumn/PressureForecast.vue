@@ -6,18 +6,41 @@
         <span>Pressure</span>
       </div>
       <div>
-        <span>997 hPa</span>
+        <span>{{ getWeatherData.current.pressure_mb }} hPa</span>
       </div>
       <div>
-        <span>Conditions are dry.</span>
+        <span>{{ getPressureDescription }}</span>
       </div>
     </div>
   </v-sheet>
 </template>
 
 <script>
+import { mapState } from "pinia";
+import { useWeatherStore } from "@/store";
 export default {
   name: "PressureForecast",
+  computed: {
+    ...mapState(useWeatherStore, ["getWeatherData"]),
+    getPressureDescription() {
+      if (this.getWeatherData.current.pressure_mb > 1022.689) {
+        return "High pressure. Expect clear skies and calm weather";
+      }
+
+      if (
+        this.getWeatherData.current.pressure_mb >= 1009.144 &&
+        this.getWeatherData.current.pressure_mb <= 1022.689
+      ) {
+        return "Normal pressure. Expect steady weather";
+      }
+
+      if (this.getWeatherData.current.pressure_mb < 1009.144) {
+        return "Low pressure. Expect warm air and rainstorms";
+      }
+
+      return "";
+    },
+  },
 };
 </script>
 
