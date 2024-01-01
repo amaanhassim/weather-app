@@ -6,18 +6,30 @@
         <span>Precipitation</span>
       </div>
       <div>
-        <span>0mm in the last 3h</span>
+        <span>{{ getWeatherData.current.precip_mm }} mm</span>
       </div>
       <div>
-        <span>Conditions are dry</span>
+        <span>Conditions are {{ getCondition }}</span>
       </div>
     </div>
   </v-sheet>
 </template>
 
 <script>
+import { mapState } from "pinia";
+import { useWeatherStore } from "@/store";
 export default {
   name: "PrecipitationForecast",
+  computed: {
+    ...mapState(useWeatherStore, ["getWeatherData"]),
+    getCondition() {
+      if (this.getWeatherData.current.precip_mm > 0) {
+        return "wet";
+      }
+
+      return "dry";
+    },
+  },
 };
 </script>
 
