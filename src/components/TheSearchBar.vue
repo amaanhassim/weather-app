@@ -13,8 +13,9 @@
       <v-btn
         class="icon-btn"
         density="comfortable"
-        icon="mdi-weather-night"
+        :icon="buttonModeIcon"
         variant="outlined"
+        @click="changeTheme()"
       ></v-btn>
     </div>
   </div>
@@ -25,6 +26,11 @@ import { mapStores, mapState, mapActions } from "pinia";
 import { useWeatherStore } from "@/store/index";
 export default {
   name: "TheSearchBar",
+  data() {
+    return {
+      buttonModeIcon: "mdi-weather-night",
+    };
+  },
   computed: {
     ...mapStores(useWeatherStore),
     ...mapState(useWeatherStore, ["getWeatherLocation"]),
@@ -46,6 +52,15 @@ export default {
     async fetchWeatherData() {
       await this.fetchData();
       await this.fetchMarineData();
+    },
+    changeTheme() {
+      if (this.$vuetify.theme.global.name === "light") {
+        this.$vuetify.theme.global.name = "dark";
+        this.buttonModeIcon = "mdi-weather-night";
+        return;
+      }
+      this.$vuetify.theme.global.name = "light";
+      this.buttonModeIcon = "mdi-weather-sunny";
     },
   },
 };

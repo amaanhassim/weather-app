@@ -1,5 +1,5 @@
 <template>
-  <v-sheet rounded class="p-[10px]">
+  <v-sheet border rounded class="p-[10px] h-48">
     <v-icon icon="mdi-calendar-month-outline"></v-icon>
     <span>10-Day Forecast</span>
     <div class="mt-3.5">
@@ -21,18 +21,7 @@ export default {
   name: "TenDayForecast",
   data() {
     return {
-      days: [
-        "Mon",
-        "Tue",
-        "Wed",
-        "Thu",
-        "Fri",
-        "Sat",
-        "Sun",
-        "Mon",
-        "Tue",
-        "Wed",
-      ],
+      days: ["Mon", "Tue", "Wed"],
     };
   },
 };

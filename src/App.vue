@@ -1,6 +1,8 @@
 <template>
-  <the-search-bar />
-  <router-view />
+  <div class="flex flex-col gap-y-[15px]">
+    <the-search-bar />
+    <router-view />
+  </div>
 </template>
 
 <script>

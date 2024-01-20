@@ -1,5 +1,5 @@
 <template>
-  <v-sheet rounded class="p-[10px] h-48">
+  <v-sheet border rounded class="p-[10px] h-48">
     <div class="h-full flex flex-col justify-between">
       <div class="flex gap-x-2.5 items-center">
         <v-icon icon="mdi-speedometer"></v-icon>

@@ -1,5 +1,5 @@
 <template>
-  <v-sheet class="h-48 p-[10px]" rounded>
+  <v-sheet border class="h-48 p-[10px]" rounded>
     <div class="h-full hour-forcast-ctn">
       <div class="flex flex-col items-center justify-between">
         <span>Now</span>

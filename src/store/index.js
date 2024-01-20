@@ -11,12 +11,13 @@ export const useWeatherStore = defineStore("weather", {
   actions: {
     async fetchData() {
       await axios
-        .get("https://api.weatherapi.com/v1/current.json", {
+        .get("https://api.weatherapi.com/v1/forecast.json", {
           params: {
             key: "c75acb44654e43abbe9223411232511",
             // need to pass city
             q: this.weatherLocation || "london",
             aqi: "yes",
+            days: 10,
           },
         })
         .then(({ data }) => {

@@ -1,5 +1,5 @@
 <template>
-  <v-sheet rounded class="h-48 p-[10px]">
+  <v-sheet border rounded class="h-48 p-[10px]">
     <div class="flex gap-x-2">
       <v-icon icon="mdi-weather-sunny"></v-icon>
       <span>UV index</span>

@@ -1,28 +1,30 @@
 <template>
-  <div class="content-ct mt-2.5">
-    <div class="col-1">
-      <current-temperature />
-      <ten-day-forecast />
-    </div>
-    <div class="col-2">
-      <div class="row-1-ct">
-        <air-pollution />
-        <sunset-sunrise />
+  <div>
+    <div class="content-ct mt-2.5">
+      <div class="col-1">
+        <current-temperature />
+        <ten-day-forecast />
       </div>
-      <div class="row-2-ct">
-        <hourly-forecast />
-        <uv-index />
+      <div class="col-2">
+        <div class="row-1-ct">
+          <air-pollution />
+          <sunset-sunrise />
+        </div>
+        <div class="row-2-ct">
+          <hourly-forecast />
+          <uv-index />
+        </div>
+        <div class="row-3-ct">
+          <feels-like />
+          <current-humidity />
+          <current-visibility />
+        </div>
       </div>
-      <div class="row-3-ct">
-        <feels-like />
-        <current-humidity />
-        <current-visibility />
+      <div class="col-3">
+        <wind-direction />
+        <precipitation-forecast />
+        <pressure-forecast />
       </div>
-    </div>
-    <div class="col-3">
-      <wind-direction />
-      <precipitation-forecast />
-      <pressure-forecast />
     </div>
   </div>
 </template>
